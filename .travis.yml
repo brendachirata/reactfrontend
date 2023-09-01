@@ -14,5 +14,5 @@ deploy:
   bucket_path:  "reactfrontend"
   on:
     branch:  master
-  access_key_id:  \$AWS-access-key
-  secret-access_key: \$AWS-secret-access-key
+  access_key_id:  "$AWS-access-key"
+  secret-access_key: "$AWS-secret-access-key"
