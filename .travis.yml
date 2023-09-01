@@ -5,3 +5,14 @@ before-install:
   - docker build -t brendachirata/reactfrontend -f Dockerfile.dev .
 script:
   - docker run -e CI=true brendachirata/reactfrontend npm run test -- --coverage 
+deploy:
+  provider: elasticbeanstalk
+  region:  "us-east-1"
+  app:  "reactfrontend"
+  env:  "Reactfrontend-env"
+  bucket_name:  "	elasticbeanstalk-us-east-1-004840557358"
+  bucket_path:  "reactfrontend"
+  on:
+    branch:  master
+  access_key_id:  $AWS-access-key
+  secret-access_key: "$AWS-secret-access-key"
